@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+         <table>
+            <tr>
+                <td>
+                    <input type="text" id="box"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button" value="(" onclick="appendValue('(')">(</button>
+            <button class="button" value=")" onclick="appendValue(')')">)</button>
+            <button class="button" value="%" onclick="appendValue('%')">%</button>
+            <button class="button" onclick="clearBox()"id="clear">C</button>
+           
+                </td>
+            </tr>
+            <tr>
+                <td>
+            <button class="button"value="7" onclick="appendValue('7')" >7</button>
+            <button class="button" value="8"onclick="appendValue('8')">8</button>
+            <button class="button"value="9" onclick="appendValue('9')">9</button>
+            <button class="button" value="/" onclick="appendValue('/')">/</button>
+            </td>
+        </tr>
+            <td>
+                <button class="button" value="4" onclick="appendValue('4')">4</button>
+                <button class="button" value="5" onclick="appendValue('5')">5</button>
+                <button class="button" value="6" onclick="appendValue('6')">6</button>
+                <button class="button" value="*" onclick="appendValue('*')">*</button></td>
+            <tr>
+                <td>
+                    
+            <button class="button" value="1" onclick="appendValue('1')">1</button>
+            <button class="button" value="2" onclick="appendValue('2')">2</button>
+            <button class="button" value="3" onclick="appendValue('3')">3</button>
+            <button class="button" value="-" onclick="appendValue('-')">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="button" onclick="appendValue('.')"id="dot">.</button>
+                    <button class="button" value="0" onclick="appendValue('0')">0</button>
+                    <button class="button" id="equal" onclick="calculateResult()">=</button>
+                    <button class="button" value="+" onclick="appendValue('+')">+</button>
+                </td>
+           </tr> 
+         </table> 
+         <script>
+            function appendValue(value) {
+                document.getElementById("box").value += value;
+            }
+    
+            function clearBox() {
+                document.getElementById("box").value = "";
+            }
+    
+            function calculateResult() {
+                try {
+                    document.getElementById("box").value = eval(document.getElementById("box").value);
+                } catch (e) {
+                    alert("Invalid Expression");
+                }
+            }
+        </script>
+    </body>
+</html>
